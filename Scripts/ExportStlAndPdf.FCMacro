@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+
+# Macro Begin: /home/ben/3D/CastleGate/Scripts/ExportStlAndPdf.FCMacro +++++++++++++++++++++++++++++++++++++++++++++++++
+import FreeCAD
+import Mesh
+
+# Gui.runCommand('Std_DlgMacroRecord',0)
+# Gui.runCommand('Std_PrintPdf',0)
+# Gui.Selection.clearSelection()
+# Gui.Selection.addSelection('CastleGate','Body')
+# Gui.ActiveDocument.ActiveView.setActiveObject('pdbody', None)
+# Gui.Selection.clearSelection()
+# Gui.runCommand('Std_Export',0)
+# Gui.Selection.addSelection('CastleGate','Body')
+# Gui.Selection.addSelection('CastleGate','Body002')
+# Gui.Selection.addSelection('CastleGate','Body003')
+# Gui.Selection.addSelection('CastleGate','Body004')
+# Gui.Selection.removeSelection('CastleGate','Body004')
+# Gui.Selection.addSelection('CastleGate','Body004')
+# Gui.Selection.addSelection('CastleGate','Body005')
+# Gui.Selection.addSelection('CastleGate','Body006')
+# Gui.Selection.addSelection('CastleGate','Part__Mirroring')
+# Gui.Selection.addSelection('CastleGate','Body001')
+### Begin command Std_Export
+__objs__ = []
+__objs__.append(FreeCAD.getDocument("CastleGate").getObject("Body"))
+__objs__.append(FreeCAD.getDocument("CastleGate").getObject("Body002"))
+__objs__.append(FreeCAD.getDocument("CastleGate").getObject("Body003"))
+__objs__.append(FreeCAD.getDocument("CastleGate").getObject("Body004"))
+__objs__.append(FreeCAD.getDocument("CastleGate").getObject("Body005"))
+__objs__.append(FreeCAD.getDocument("CastleGate").getObject("Body006"))
+__objs__.append(FreeCAD.getDocument("CastleGate").getObject("Part__Mirroring"))
+__objs__.append(FreeCAD.getDocument("CastleGate").getObject("Body001"))
+if hasattr(Mesh, "exportOptions"):
+    options = Mesh.exportOptions(u"/home/ben/3D/CastleGate/Output/CastleGate.stl")
+    Mesh.export(__objs__, u"/home/ben/3D/CastleGate/Output/CastleGate.stl", options)
+else:
+    Mesh.export(__objs__, u"/home/ben/3D/CastleGate/Output/CastleGate.stl")
+
+del __objs__
+### End command Std_Export
+# Macro End: /home/ben/3D/CastleGate/Scripts/ExportStlAndPdf.FCMacro +++++++++++++++++++++++++++++++++++++++++++++++++
